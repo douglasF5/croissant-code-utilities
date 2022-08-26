@@ -6,9 +6,11 @@ function toTitleCase(input: InputType) {
   switch (type) {
     case 'string':
       const chunks = (input as string).split(' ');
-      const newString = chunks.reduce((prev, curr) => {
-        return uppercaseFirstChar(prev) + ' ' + uppercaseFirstChar(curr);
-      }, '');
+      const newString = chunks
+        .map((chunk) => {
+          return uppercaseFirstChar(chunk);
+        })
+        .join(' ');
 
       return newString;
 
@@ -17,13 +19,13 @@ function toTitleCase(input: InputType) {
       let newObj = {};
 
       for (let key of keys) {
-        newObj[key] = uppercaseFirstChar(input[key]);
+        newObj[key] = toTitleCase(input[key]);
       }
 
       return newObj;
     case 'array':
       const newArray = (input as Array<string>).map((chunk) => {
-        return uppercaseFirstChar(chunk);
+        return toTitleCase(chunk);
       });
 
       return newArray;
