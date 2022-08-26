@@ -12,6 +12,7 @@ setState('1254');
 console.log(state); //{current: '12:54', prev: ''}
 
 //...
+
 setState('324');
 console.log(state); //{current: 03:24', prev: '12:54'}
 
