@@ -1,6 +1,15 @@
 //GETTING ELEMENTS
-export function get(query: string, getAll: boolean = false): HTMLElement {
-  return document.querySelector(query);
+export function get(
+  query: string,
+  getAll: boolean = false
+): HTMLElement | NodeList {
+  if (getAll) {
+    const elementCollection = document.querySelectorAll(query) as NodeList;
+    return elementCollection;
+  } else {
+    const element = document.querySelector(query) as HTMLElement;
+    return element;
+  }
 }
 
 //APPENDING ELEMENTS
