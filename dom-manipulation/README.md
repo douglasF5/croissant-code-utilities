@@ -1,6 +1,6 @@
-## Dom manipulation utilities
+# Dom manipulation utilities
 
-Creating elements
+## Creating elements
 ```TypeScript
 //CREATING AN ELEMENT
 const title = create(`<h1>Hello world!</h1>`);
@@ -21,7 +21,7 @@ append(list, listItems);
 ```
 <br>
 
-Getting elements
+## Getting elements
 ```TypeScript
 //GETTING ONE ELEMENT
 const featuredPost = get('#featured');
@@ -31,7 +31,7 @@ const posts = get('[data-post]', true);
 ```
 <br>
 
-Appending elements
+## Appending elements
 ```TypeScript
 //APPENDING ONE ELEMENT
 const container = get('#app');
