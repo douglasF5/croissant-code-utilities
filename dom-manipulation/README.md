@@ -35,7 +35,7 @@ const posts = get('[data-post]', true);
 ```TypeScript
 //APPENDING ONE ELEMENT
 const container = get('#app');
-const heading = create(<h1>Hello world</h1>);
+const heading = create(`<h1>Hello world</h1>);
 
 append(app, [title]);
 
