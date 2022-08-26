@@ -77,7 +77,7 @@ function convertToTimeString(str: string) {
   return timeString;
 }
 
-//USE MASK
+//USE FIELD MASK
 type MaskState = {
   current: string;
   prev: string | null;
@@ -90,7 +90,7 @@ interface MaskOptions {
   prefix?: string;
 }
 
-export function useMask(options: MaskOptions): UseMaskStateType {
+export function useFieldMask(options: MaskOptions): UseMaskStateType {
   let maskedValue = { current: '', prev: '' };
 
   function setMaskedValue(event: InputEvent) {
