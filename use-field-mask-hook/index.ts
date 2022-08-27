@@ -82,7 +82,7 @@ type MaskState = {
   current: string;
   prev: string | null;
 };
-type SetMaskStateType = (event: InputEvent) => void;
+type SetMaskStateType = (value: string) => void;
 type UseMaskStateType = [state: State, setState: SetMaskStateType];
 
 interface MaskOptions {
@@ -90,24 +90,17 @@ interface MaskOptions {
   prefix?: string;
 }
 
-export function useFieldMask(options: MaskOptions): UseMaskStateType {
+export function useMask(options: MaskOptions): UseMaskStateType {
   let maskedValue = { current: '', prev: '' };
 
-  function setMaskedValue(event: InputEvent) {
-    const { data, target } = event;
-    const { value } = target as HTMLInputElement;
-
+  function setMaskedValue(value: string) {
     let newMaskedValue: MaskState;
 
-    if (/\D/.test(data) && data !== null) {
-      newMaskedValue = maskedValue;
-    } else {
-      const newVal = unmaskValue(value);
-      newMaskedValue = {
-        current: maskValue(newVal, options),
-        prev: maskedValue.current,
-      };
-    }
+    const newVal = unmaskValue(value);
+    newMaskedValue = {
+      current: maskValue(newVal, options),
+      prev: maskedValue.current,
+    };
 
     Object.assign(maskedValue, newMaskedValue);
   }
