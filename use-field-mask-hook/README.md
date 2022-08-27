@@ -24,9 +24,18 @@ input.value = maskedValue.current //'03:24'
 ```TypeScript
 const [maskedValue, setMaskedValue] = useFieldMask({ type: 'currency', prefix: '$' });
 
-input.oninput = (e: InputEvent) => {
-  setMaskedValue(e);
-  const input = e.target as HTMLInputElement;
-  input.value = maskedValue.current;
+input.oninput = ({ data, target }: InputEvent) => {
+  const input = target as HTMLInputElement;
+  let newValue: string;
+
+  if (/\D/.test(data) && data !== null) {
+    newValue = maskedValue.prev;
+  } else {
+    setMaskedValue(input.value);
+    newValue = maskedValue.current;
+  }
+
+  h1.innerHTML = newValue;
+  input.value = newValue;
 };
 ```
