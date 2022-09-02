@@ -1,4 +1,4 @@
-## To-title-case function
+# To-title-case function
 
 The function returns a `string` in title case (first character of each word in uppercase), `object` or `array` depending on the provided input. It also uses recursion to process nested data.
 
