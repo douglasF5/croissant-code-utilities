@@ -14,7 +14,7 @@ filterData<Transaction>(data, query); //this is similar to the filter() method f
 const query = [
   'type === expense',
   '&&',
-  ['category === groceries', || 'category === food']
+  ['category === groceries', '||', 'category === food']
 ];
 
 filterData<Transaction>(data, query); //it compares each array element against each condition
